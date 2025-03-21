@@ -16,3 +16,5 @@ langchain-core
 langchain-community
 pdf2image
 langchain_groq
+docx
+pdf2imageclea

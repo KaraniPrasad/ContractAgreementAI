@@ -10,12 +10,15 @@ import pytesseract
 from pdf2image import convert_from_path
 import os
 from openai import OpenAI
+import streamlit as st
 
 class ClauseExtractor:
     def __init__(self, file_path):
+        st.secrets["GROQ"]["API_KEY"]
         self.file_path = file_path
         #self.ollama_api_url = "http://localhost:11434/api"  # URL for Ollama Omega 3 LLM API
-        self.groq_api_key = os.getenv("GROQ_API_KEY")
+        self.groq_api_key = st.secrets["GROQ"]["API_KEY"]
+
         # Set the API URL here, no need to pass it as a parameter
         #self.groq_api_url = os.getenv("GROQ_API_URL", "https://api.groq.com/v1/inference")  # Default Groq API URL if not found in environment
 

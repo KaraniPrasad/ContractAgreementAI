@@ -20,8 +20,10 @@ def main():
         raise ValueError("API key is not set. Please set the 'GROQ_API_KEY' environment variable.")
     else:
         print("API Key loaded successfully!")"""
+    
+    api_key = st.secrets["GROQ"]["API_KEY"]
 
-    llm = LLM(api_key=os.getenv("GROQ_API_KEY"))
+    llm = LLM(api_key)
     graph = Graph()
 
     # Function to handle file uploads
