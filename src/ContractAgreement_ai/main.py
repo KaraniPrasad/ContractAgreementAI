@@ -16,6 +16,7 @@ def main():
     # Function to handle file uploads
     def upload_file():
         file = st.file_uploader("Upload your contract (PDF/Word)", type=["pdf", "docx"])
+       
         if file is not None:
             for root, dirs, files in os.walk("uploads"):
                 for filename in files:
