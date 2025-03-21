@@ -17,12 +17,13 @@ def main():
     def upload_file():
         file = st.file_uploader("Upload your contract (PDF/Word)", type=["pdf", "docx"])
         if file is not None:
-            print(dirname = os.path.dirname(__file__))
-            file_path = os.path.join("{dirname}/uploads", file.name)
+            for root, dirs, files in os.walk("uploads"):
+                for filename in files:
+                    file_path = os.path.join(root, filename)
             #file_path = file.name
-            with open(file_path, "wb") as f:
-                f.write(file.getbuffer())
-            return file_path
+                    with open(file_path, "wb") as f:
+                            f.write(file.getbuffer())
+                    return file_path
         return None
 
     # Function to load and extract clauses
