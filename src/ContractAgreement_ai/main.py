@@ -17,15 +17,16 @@ def main():
     def upload_file():
         file = st.file_uploader("Upload your contract (PDF/Word)", type=["pdf", "docx"])
         if file is not None:
-            if (os.path.isdir("uploads")): 
-                pass 
-            else:
-               os.path.dirname("uploads")
+            upload_dir = "uploads"  # Directory to store the uploaded files
+            # Ensure the 'uploads' directory exists
+            if not os.path.exists(upload_dir):
+                os.makedirs(upload_dir)  # Create the directory if it doesn't exist
             
-            file_path = os.path.join("uploads", file.name)
-            #file_path = file.name
+            # Define the file path to store the uploaded file
+            file_path = os.path.join(upload_dir, file.name)
             with open(file_path, "wb") as f:
-                f.write(file.getbuffer())
+                f.write(file.getbuffer())  # Write the uploaded file to disk
+            
             return file_path
         return None
 
