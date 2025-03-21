@@ -45,7 +45,7 @@ def main():
     def extract_clauses_from_file(file_path):
         extractor = ClauseExtractor(file_path)
         clauses = extractor.extract_clauses()
-        st.write(clauses)
+        #st.write(clauses)
         #print(clauses)
         return clauses
 

@@ -20,6 +20,9 @@ class ClauseExtractor:
         #self.groq_api_url = os.getenv("GROQ_API_URL", "https://api.groq.com/v1/inference")  # Default Groq API URL if not found in environment
 
     def extract_clauses(self):
+        if not os.path.exists(self.file_path):
+                raise ValueError("File not exists.")
+
         if self.file_path.endswith('.pdf'):
             text = self._extract_text_from_pdf(self.file_path)
         elif self.file_path.endswith('.docx'):
