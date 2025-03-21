@@ -21,6 +21,7 @@ def main():
             for root, dirs, files in os.walk("uploads"):
                 for filename in files:
                     file_path = os.path.join(root, filename)
+                    st.write(file_path)
             #file_path = file.name
                     with open(file_path, "wb") as f:
                             f.write(file.getbuffer())
@@ -31,7 +32,8 @@ def main():
     def extract_clauses_from_file(file_path):
         extractor = ClauseExtractor(file_path)
         clauses = extractor.extract_clauses()
-        print(clauses)
+        st.write(clauses)
+        #print(clauses)
         return clauses
 
     # Function to load clause library
