@@ -195,13 +195,15 @@ class ClauseComparator:
             )
 
             # System message to set the task context for the AI model
-            system_message = """You are an AI assistant helping to:
-            1. Identify the type of the uploaded clause list at the top.
-            2. Identify the type of the standard clause only once at the top.
-            3. Compare the uploaded clause with standard clauses to check for matching types.
-            4. If there is no matching clause for a uploaded clause in standard library then do not add Key Differences and Detailed Analysis for such clause to response.
-            5. Do a complete legal term analysis if the clause match or even if partial match with standard library.
-            """
+            system_message = """You are an AI assistant designed to:
+                1. Identify and list the types of uploaded clauses at the top.
+                2. Identify and list the type of the standard clause only once at the top.
+                3. Ensure that all clause analysis outputs follow a consistent, structured format.
+                4. Compare the uploaded clauses with the standard clauses to identify matching types.
+                5. For clauses with no match in the standard library, provide a brief one-line analysis (e.g., "No match found").
+                6. If there is a match or partial match, provide a legal term analysis including key differences and detailed analysis.
+                7. Keep the analysis concise and professional, using crisp legal language.
+                8. Ensure that all comparisons and analyses are clear and easily understandable, with consistent formatting across all responses."""
 
             # User message that provides the uploaded clause and the standard clause
             user_message = f"""User uploaded clause: {uploaded_clause}
