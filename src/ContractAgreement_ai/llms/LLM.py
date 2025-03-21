@@ -10,7 +10,7 @@ from openai import OpenAI
 
 class LLM:
     def __init__(self, api_key):
-        self.api_key = os.getenv("GROQ_API_KEY")
+        self.api_key = api_key
         # System message to guide the AI model's behavior
         self.system_message = """You are an AI assistant to help in supplier draft a mutually acceptable clause for contract agreements. 
                                 Do not strip any text in the clause."""
@@ -20,7 +20,7 @@ class LLM:
         # Initialize client with Groq's endpoint
         client = OpenAI(
                 base_url="https://api.groq.com/openai/v1",
-                api_key=os.getenv("GROQ_API_KEY")
+                api_key=self.api_key
             )
         response = client.chat.completions.create( model="llama3-70b-8192",  # Use the model you wish to query
                 messages=[{"role": "system", "content": self.system_message},

@@ -105,7 +105,7 @@ class ClauseExtractor:
             # Initialize client with Groq's endpoint
             client = OpenAI(
                 base_url="https://api.groq.com/openai/v1",
-                api_key=self.groq_api_key
+                api_key=st.secrets["GROQ"]["API_KEY"]
             )
 
             # System message to guide the AI model's behavior
@@ -180,7 +180,7 @@ class EmbeddingManager:
 
 class ClauseComparator:
     def __init__(self):
-        self.groq_api_key = os.getenv("GROQ_API_KEY")
+        self.groq_api_key = st.secrets["GROQ"]["API_KEY"]
    
     def compare_clauses(self,uploaded_clause, standard_clause):
         """
@@ -191,7 +191,7 @@ class ClauseComparator:
             # Initialize client with Groq's endpoint
             client = OpenAI(
                 base_url="https://api.groq.com/openai/v1",
-                api_key=self.groq_api_key
+                api_key=st.secrets["GROQ"]["API_KEY"]
             )
 
             # System message to set the task context for the AI model
