@@ -20,7 +20,7 @@ class LLM:
         # Initialize client with Groq's endpoint
         client = OpenAI(
                 base_url="https://api.groq.com/openai/v1",
-                api_key=self.api_key
+                api_key=os.getenv("GROQ_API_KEY")
             )
         response = client.chat.completions.create( model="llama3-70b-8192",  # Use the model you wish to query
                 messages=[{"role": "system", "content": self.system_message},
