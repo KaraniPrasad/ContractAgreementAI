@@ -2,11 +2,11 @@ from langchain_openai import ChatOpenAI
 import os
 from dotenv import load_dotenv
 from pathlib import Path
-dotenv_path = Path('/Users/prasadkarani/Documents/AgenticAIWorkspace/.env')
+#dotenv_path = Path('/Users/prasadkarani/Documents/AgenticAIWorkspace/.env')
 load_dotenv()  #load all the environment variables
 from openai import OpenAI
 
-os.environ["GROQ_API_KEY"]=os.getenv("GROQ_API_KEY")
+#os.environ["GROQ_API_KEY"]=os.getenv("GROQ_API_KEY")
 
 class LLM:
     def __init__(self, api_key):
