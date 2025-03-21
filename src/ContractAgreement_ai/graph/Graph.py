@@ -1,4 +1,4 @@
-from state.State import UserState
+from src.ContractAgreement_ai.state.State import UserState
 
 class Graph:
     def __init__(self):
