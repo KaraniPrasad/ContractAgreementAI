@@ -10,7 +10,7 @@ from openai import OpenAI
 
 class LLM:
     def __init__(self, api_key):
-        self.api_key = api_key
+        self.api_key = os.getenv("GROQ_API_KEY")
         # System message to guide the AI model's behavior
         self.system_message = """You are an AI assistant to help in supplier draft a mutually acceptable clause for contract agreements. 
                                 Do not strip any text in the clause."""
