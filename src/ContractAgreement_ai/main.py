@@ -1,10 +1,10 @@
 import streamlit as st
 import os
-from llms.LLM import LLM
-from graph.Graph import Graph
-from nodes.Node import ClauseExtractor, EmbeddingManager, ClauseComparator
-from state.State import UserState
-from tools.Tools import ClauseLibraryLoader
+from src.ContractAgreement_ai.llms.LLM import LLM
+from src.ContractAgreement_ai.graph.Graph import Graph
+from src.ContractAgreement_ai.nodes.Node import ClauseExtractor, EmbeddingManager, ClauseComparator
+from src.ContractAgreement_ai.state.State import UserState
+from src.ContractAgreement_ai.tools.Tools import ClauseLibraryLoader
 
 
 def main():
@@ -45,7 +45,7 @@ def main():
         return f"{response}"
 
     # Streamlit UI
-    st.title("AI Assistant for Contract Negotiation")
+    st.title("AI Assistant for Contract Clause Negotiation")
 
     st.write("This is app has limitation due to free tier token usage! Please use smaller contract file for comparision:")
     st.write("Sample contract and clause library can be found @ https://tinyurl.com/ClausesLibrary")
