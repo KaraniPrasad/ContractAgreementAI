@@ -17,7 +17,11 @@ def main():
     def upload_file():
         file = st.file_uploader("Upload your contract (PDF/Word)", type=["pdf", "docx"])
         if file is not None:
-            os.makedirs("uploads")
+            if (os.path.isdir("uploads")): 
+                pass 
+            else:
+               os.path.dirname("uploads")
+            
             file_path = os.path.join("uploads", file.name)
             #file_path = file.name
             with open(file_path, "wb") as f:
