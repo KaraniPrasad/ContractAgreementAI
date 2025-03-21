@@ -13,13 +13,13 @@ load_dotenv()
 def main():
 
     # Initialize the LLM and Graph
-    print(os.getenv("GROQ_API_KEY"))
+    """print(os.getenv("GROQ_API_KEY"))
     api_key = os.getenv("GROQ_API_KEY")
 
     if api_key is None:
         raise ValueError("API key is not set. Please set the 'GROQ_API_KEY' environment variable.")
     else:
-        print("API Key loaded successfully!")
+        print("API Key loaded successfully!")"""
 
     llm = LLM(api_key=os.getenv("GROQ_API_KEY"))
     graph = Graph()
