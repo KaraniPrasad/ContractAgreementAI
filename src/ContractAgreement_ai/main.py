@@ -5,6 +5,9 @@ from src.ContractAgreement_ai.graph.Graph import Graph
 from src.ContractAgreement_ai.nodes.Node import ClauseExtractor, EmbeddingManager, ClauseComparator
 from src.ContractAgreement_ai.state.State import UserState
 from src.ContractAgreement_ai.tools.Tools import ClauseLibraryLoader
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 def main():
@@ -15,7 +18,7 @@ def main():
         raise ValueError("API key is not set. Please set the 'GROQ_API_KEY' environment variable.")
     else:
         print("API Key loaded successfully!")
-        
+
     llm = LLM(api_key=os.getenv("GROQ_API_KEY"))
     graph = Graph()
 
