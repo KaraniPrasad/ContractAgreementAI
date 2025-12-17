@@ -17,7 +17,7 @@ class ClauseLibraryLoader:
                 file_path = os.path.join(root, filename)
 
                 # Process only .docx files
-                if filename.endswith(".docx"):
+                if not filename.startswith('._') and filename.endswith(".docx"):
                     try:
                         self.clause_dict[filename] = self.read_docx(file_path)
                         print(self.clause_dict[filename])

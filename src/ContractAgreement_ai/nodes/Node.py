@@ -11,6 +11,9 @@ from pdf2image import convert_from_path
 import os
 from openai import OpenAI
 import streamlit as st
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class ClauseExtractor:
     def __init__(self, file_path):
@@ -26,9 +29,9 @@ class ClauseExtractor:
         if not os.path.exists(self.file_path):
                 raise ValueError("File not exists.")
 
-        if self.file_path.endswith('.pdf'):
+        if not self.file_path.startswith('._') and self.file_path.endswith('.pdf'):
             text = self._extract_text_from_pdf(self.file_path)
-        elif self.file_path.endswith('.docx'):
+        elif not self.file_path.startswith('._') and self.file_path.endswith('.docx'):
             text = self._extract_text_from_word(self.file_path)
         else:
             raise ValueError("Unsupported file format")
@@ -114,7 +117,7 @@ class ClauseExtractor:
 
             # Create chat completion with error handling
             response = client.chat.completions.create(
-                model="llama3-70b-8192",  # Use the model you wish to query
+                model="llama-3.3-70b-versatile",  # Use the model you wish to query
                 messages=[{"role": "system", "content": system_message},
                         {"role": "user", "content": text}],
                 temperature=0.7,
@@ -213,7 +216,7 @@ class ClauseComparator:
 
             # Create chat completion with error handling
             response = client.chat.completions.create(
-                model="llama3-70b-8192",  # Use the model you wish to query
+                model="llama-3.3-70b-versatile",  # Use the model you wish to query
                 messages=[{"role": "system", "content": system_message},
                           {"role": "user", "content": user_message}],
                 temperature=0.7,
